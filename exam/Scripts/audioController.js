@@ -155,3 +155,4 @@ var audioController = (function() {
 })();
 
 audioController.init();
+window.audioController = audioController;
