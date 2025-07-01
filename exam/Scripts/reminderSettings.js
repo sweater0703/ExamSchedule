@@ -366,8 +366,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const stopAudioBtn = document.getElementById('stop-audio-btn');
     if (stopAudioBtn) {
         stopAudioBtn.addEventListener('click', function() {
-            if (window.audioController && typeof window.audioController.stop === 'function') {
-                window.audioController.stop();
+            if (window.reminderQueue && typeof window.reminderQueue.stop === 'function') {
+                window.reminderQueue.stop();
             }
         });
     }

@@ -76,6 +76,15 @@ var audioController = (function() {
                 audio.currentTime = 0;
             } catch (e) {}
         });
+        // 停止reminderQueue中audioCache的所有音频
+        if (window.audioCache) {
+            Object.values(window.audioCache).forEach(audio => {
+                try {
+                    audio.pause();
+                    audio.currentTime = 0;
+                } catch (e) {}
+            });
+        }
     }
 
     function getAudioSrc(type) {
@@ -156,3 +165,5 @@ var audioController = (function() {
 
 audioController.init();
 window.audioController = audioController;
+// 兼容reminderQueue的audioCache全局停止
+if (typeof window.audioCache === 'undefined') window.audioCache = {};
